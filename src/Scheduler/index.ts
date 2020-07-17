@@ -39,7 +39,6 @@ export default class Scheduler {
 	private async _fetchTask(task: typeof BaseTask) {
 		const taskInstance: BaseTask = this.container.make(task, [this.appRootPath + '/tmpLock', this.logger])
 		const taskInstanceConstructor = taskInstance.constructor as typeof BaseTask
-		console.log(taskInstanceConstructor.schedule)
 		// Every task must expose a schedule
 		if (!('schedule' in taskInstanceConstructor)) {
 			throw RuntimeException.undefinedTaskSchedule(task.constructor.name)
