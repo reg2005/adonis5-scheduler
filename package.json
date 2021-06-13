@@ -1,6 +1,6 @@
 {
   "name": "adonis5-scheduler",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "This library provides an easy way to schedule recurring tasks for AdonisJS",
   "scripts": {
     "pretest": "npm run lint",
