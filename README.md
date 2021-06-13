@@ -25,7 +25,7 @@ Install it:
 ```bash
 npm i adonis5-scheduler
 ```
-Compile your code:
+
 Connect all dependences:
 ```bash
 node ace invoke adonis5-scheduler
