@@ -1,7 +1,10 @@
 {
 	"compileOnSave": true,
 	"compilerOptions": {
+		"skipLibCheck": true,
 		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"resolveJsonModule": true
 	},
 	"extends": "./node_modules/@adonisjs/mrm-preset/_tsconfig",
 	"files": [

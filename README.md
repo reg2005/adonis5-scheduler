@@ -23,12 +23,9 @@ This library provides an easy way to schedule recurring tasks for AdonisJS v5.
 ## Installation
 Install it:
 ```bash
-npm i --save adonis5-scheduler
+npm i adonis5-scheduler
 ```
 Compile your code:
-```bash
-node ace serve --watch
-```
 Connect all dependences:
 ```bash
 node ace invoke adonis5-scheduler

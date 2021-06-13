@@ -1,13 +1,8 @@
-// import { join } from 'path'
 import test from 'japa'
-// import { Filesystem } from '@poppinss/dev-utils'
-// import { Ioc } from '@adonisjs/fold/build/index'
 import AdonisApplication from 'adonis-provider-tester'
-// import { Application } from '@adonisjs/application/build/standalone'
 import Scheduler from '../src/Scheduler'
 import SchedulerProvider from '../providers/SchedulerProvider'
 import { BaseTask } from '../index'
-// import { Logger } from '@adonisjs/logger/build/standalone'
 import { LoggerConfig } from '@ioc:Adonis/Core/Logger'
 
 export const loggerConfig: LoggerConfig = {
@@ -17,7 +12,6 @@ export const loggerConfig: LoggerConfig = {
 	prettyPrint: true,
 }
 
-// const fs = new Filesystem(join(__dirname, '__app'))
 test.group('Scheduler', (group) => {
 	let adonisApp: AdonisApplication
 
@@ -29,15 +23,6 @@ test.group('Scheduler', (group) => {
 		await adonisApp.stopServer()
 	})
 
-	// function getApp() {
-	// console.log('fs.basePath', fs.basePath)
-	// ioc.bind('Adonis/Core/Application', () => new Application(join(fs.basePath, 'build'), {} as any, {} as any, {}))
-	// ioc.bind('Adonis/Core/Logger', () => new Logger(loggerConfig))
-	// const schedulerProvider = new SchedulerProvider(ioc)
-	// schedulerProvider.register()
-	// const scheduler: Scheduler = ioc.use('Adonis/Addons/Scheduler')
-	// return { scheduler }
-	// }
 	let withLockCounter = 0
 	let withoutLockCounter = 0
 	test('Should run with good tasks', async (assert) => {

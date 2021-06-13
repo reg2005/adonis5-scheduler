@@ -44,7 +44,7 @@ export class BaseTask {
 	}
 
 	public async _run() {
-		const useLock = ((this.constructor as unknown) as typeof BaseTask).useLock
+		const useLock = (this.constructor as unknown as typeof BaseTask).useLock
 
 		if (useLock) {
 			const locked = await this.locker.check()
