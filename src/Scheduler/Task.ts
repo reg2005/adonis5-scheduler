@@ -83,7 +83,7 @@ export class BaseTask {
 			return duration
 		}
 
-		duration = ms(duration)
+		duration = Number.parseInt(ms(duration))
 		return duration
 	}
 }

@@ -13,7 +13,7 @@ export function getSchedulerCompiledClassesPath(app: ApplicationContract) {
 export function getSchedulerClassesPath(app: ApplicationContract) {
 	return join(process.cwd(), app.resolveNamespaceDirectory('scheduler') || 'app/Tasks')
 }
-export async function dirIsExists(path) {
+export async function dirIsExists(path: string) {
 	try {
 		return !!(await promises.readdir(path))
 	} catch (e) {
