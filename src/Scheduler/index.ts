@@ -6,6 +6,7 @@ import { BaseTask } from './Task'
 import NodeSchedule from 'node-schedule'
 import { IocContract } from '@adonisjs/fold'
 import Logger from '@ioc:Adonis/Core/Logger'
+import cronstrue from 'cronstrue'
 
 /**
  * @module Scheduler
@@ -37,7 +38,10 @@ export default class Scheduler {
 	 * Load task file
 	 */
 	private async _fetchTask(task: typeof BaseTask) {
-		const taskInstance: BaseTask = this.container.make(task, [this.appRootPath + '/tmpLock', this.logger])
+		const taskInstance: BaseTask = this.container.make(task, [
+			this.appRootPath + '/tmp/adonis5-scheduler/locks',
+			this.logger,
+		])
 		const taskInstanceConstructor = taskInstance.constructor as typeof BaseTask
 		// Every task must expose a schedule
 		if (!('schedule' in taskInstanceConstructor)) {
@@ -62,7 +66,12 @@ export default class Scheduler {
 		}
 
 		// Register task handler
+		const humanCron = cronstrue.toString(taskInstanceConstructor.schedule)
+
 		NodeSchedule.scheduleJob(taskInstanceConstructor.schedule, taskInstance._run.bind(taskInstance))
+		this.logger.info(
+			`Task ${taskInstanceConstructor.name} registered with schedule ${taskInstanceConstructor.schedule} (${humanCron})`
+		)
 	}
 
 	public getRegisteredTasks() {

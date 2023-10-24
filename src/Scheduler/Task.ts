@@ -2,6 +2,58 @@ import ms from 'ms'
 import Locker from './Locker'
 import Logger from '@ioc:Adonis/Core/Logger'
 import { LockerInterface } from '@ioc:Adonis/Addons/Scheduler'
+import { CronTime } from 'cron-time-generator'
+
+export class CronTimeV2 extends CronTime {
+	public static everySecond() {
+		return '* * * * * *'
+	}
+	public static everyTwoSeconds() {
+		return '*/2 * * * * *'
+	}
+	public static everyThreeSeconds() {
+		return '*/3 * * * * *'
+	}
+	public static everyFourSeconds() {
+		return '*/4 * * * * *'
+	}
+	public static everyFiveSeconds() {
+		return '*/5 * * * * *'
+	}
+	public static everyTenSeconds() {
+		return '*/10 * * * * *'
+	}
+	public static everyFifteenSeconds() {
+		return '*/15 * * * * *'
+	}
+	public static everyThirtySeconds() {
+		return '*/30 * * * * *'
+	}
+	public static everyMinute() {
+		return '* * * * *'
+	}
+	public static everyTwoMinutes() {
+		return '*/2 * * * *'
+	}
+	public static everyThreeMinutes() {
+		return '*/3 * * * *'
+	}
+	public static everyFourMinutes() {
+		return '*/4 * * * *'
+	}
+	public static everyFiveMinutes() {
+		return '*/5 * * * *'
+	}
+	public static everyTenMinutes() {
+		return '*/10 * * * *'
+	}
+	public static everyFifteenMinutes() {
+		return '*/15 * * * *'
+	}
+	public static everyThirtyMinutes() {
+		return '*/30 * * * *'
+	}
+}
 
 /**
  * @module BaseTask
